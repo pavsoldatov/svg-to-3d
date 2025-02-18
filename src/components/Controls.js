@@ -26,6 +26,9 @@ export const useSceneControls = () => {
       "Save as GLB": button(() => {
         window.dispatchEvent(new CustomEvent("export-glb"));
       }),
+      "Save as STL": button(() => {
+        window.dispatchEvent(new CustomEvent("export-stl"));
+      }),
     }),
     isCCW: {
       value: false,

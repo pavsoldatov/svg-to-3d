@@ -3,7 +3,7 @@ import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import { useSceneControls } from "./Controls";
-import { GLTFExporter } from "three/examples/jsm/Addons.js";
+import { GLTFExporter, STLExporter } from "three/examples/jsm/Addons.js";
 
 const Figure = ({ position }) => {
   const {
@@ -23,7 +23,6 @@ const Figure = ({ position }) => {
     rotationY,
     rotationZ,
     curveSegments,
-    exportGLB,
   } = useSceneControls();
 
   const svgData = useLoader(SVGLoader, selectedSvg);
@@ -75,10 +74,38 @@ const Figure = ({ position }) => {
     );
   }, []);
 
+  const handleSTLExport = useCallback(() => {
+    if (!meshRef.current) return;
+
+    const exporter = new STLExporter();
+
+    // Create a scene with the mesh to preserve transforms
+    const scene = new THREE.Scene();
+    const meshClone = meshRef.current.clone();
+    scene.add(meshClone);
+
+    const result = exporter.parse(scene, { binary: true });
+
+    // Create blob and download
+    const blob = new Blob([result], { type: "application/octet-stream" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "model.stl";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+  }, []);
+
   useEffect(() => {
     window.addEventListener("export-glb", handleExport);
     return () => window.removeEventListener("export-glb", handleExport);
   }, [handleExport]);
+
+  useEffect(() => {
+    window.addEventListener("export-stl", handleSTLExport);
+    return () => window.removeEventListener("export-stl", handleSTLExport);
+  }, [handleSTLExport]);
 
   return (
     <mesh
