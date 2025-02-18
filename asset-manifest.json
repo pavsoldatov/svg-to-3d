@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://pavsoldatov.github.io/svg-to-3d/static/css/main.b3be049b.css",
-    "main.js": "https://pavsoldatov.github.io/svg-to-3d/static/js/main.f1e0594a.js",
+    "main.js": "https://pavsoldatov.github.io/svg-to-3d/static/js/main.411c1e1f.js",
     "static/js/973.0afdd28e.chunk.js": "https://pavsoldatov.github.io/svg-to-3d/static/js/973.0afdd28e.chunk.js",
     "static/media/brazil-map.svg": "https://pavsoldatov.github.io/svg-to-3d/static/media/brazil-map.b55935b68044744f88dd0f994058dc46.svg",
     "static/media/adidas4.svg": "https://pavsoldatov.github.io/svg-to-3d/static/media/adidas4.95f296b459fea58fc4d61056ad44558e.svg",
@@ -13,11 +13,11 @@
     "static/media/toucan.svg": "https://pavsoldatov.github.io/svg-to-3d/static/media/toucan.d2b1b4addf28d1534f77c2898310bd1c.svg",
     "index.html": "https://pavsoldatov.github.io/svg-to-3d/index.html",
     "main.b3be049b.css.map": "https://pavsoldatov.github.io/svg-to-3d/static/css/main.b3be049b.css.map",
-    "main.f1e0594a.js.map": "https://pavsoldatov.github.io/svg-to-3d/static/js/main.f1e0594a.js.map",
+    "main.411c1e1f.js.map": "https://pavsoldatov.github.io/svg-to-3d/static/js/main.411c1e1f.js.map",
     "973.0afdd28e.chunk.js.map": "https://pavsoldatov.github.io/svg-to-3d/static/js/973.0afdd28e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3be049b.css",
-    "static/js/main.f1e0594a.js"
+    "static/js/main.411c1e1f.js"
   ]
 }
