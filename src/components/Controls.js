@@ -21,13 +21,17 @@ const GOOD_SVG_OPTIONS = {
 };
 
 export const useSceneControls = () => {
-  return useControls({
-    Export: folder({
+  const [values] = useControls(() => ({
+    Buttons: folder({
       "Save as GLB": button(() => {
         window.dispatchEvent(new CustomEvent("export-glb"));
       }),
       "Save as STL": button(() => {
         window.dispatchEvent(new CustomEvent("export-stl"));
+      }),
+      "View SVG": button((get) => {
+        const currentSvg = get("selectedSvg");
+        window.open(currentSvg, "_blank");
       }),
     }),
     isCCW: {
@@ -135,5 +139,7 @@ export const useSceneControls = () => {
       step: 1,
       label: "Curve Segments",
     },
-  });
+  }));
+
+  return values;
 };
