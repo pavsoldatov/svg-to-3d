@@ -1,14 +1,23 @@
 import { useControls } from "leva";
 
+import toucanSvg from "../assets/toucan.svg";
+import adidasSvg from "../assets/adidas3.svg";
+import coffeeSvg from "../assets/coffee.svg";
+import signature1Svg from "../assets/signature1.svg";
+import signature2Svg from "../assets/signature2.svg";
+import brazilMapSvg from "../assets/brazil-map.svg";
+import insigniaSvg from "../assets/oyu.svg";
+import adidasBadSvg from "../assets/adidas4.svg";
+
 const GOOD_SVG_OPTIONS = {
-  Toucan: "/toucan.svg",
-  Adidas: "/adidas3.svg",
-  Coffee: "/coffee.svg",
-  "Signature 1": "/signature1.svg",
-  "Signature 2": "/signature2.svg",
-  "Brazil Map": "/brazil-map.svg",
-  Insignia: "/oyu.svg",
-  "Adidas (bad)": "/adidas4.svg",
+  Toucan: toucanSvg,
+  Adidas: adidasSvg,
+  Coffee: coffeeSvg,
+  "Signature 1": signature1Svg,
+  "Signature 2": signature2Svg,
+  "Brazil Map": brazilMapSvg,
+  Insignia: insigniaSvg,
+  "Adidas (bad)": adidasBadSvg,
 };
 
 export const useSceneControls = () => {

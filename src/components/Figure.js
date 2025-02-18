@@ -3,8 +3,6 @@ import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import { useSceneControls } from "./Controls";
-import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
-
 
 const Figure = ({ position }) => {
   const {
