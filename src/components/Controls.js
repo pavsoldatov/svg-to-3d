@@ -1,4 +1,4 @@
-import { useControls } from "leva";
+import { button, folder, useControls } from "leva";
 
 import toucanSvg from "../assets/toucan.svg";
 import adidasSvg from "../assets/adidas3.svg";
@@ -22,6 +22,11 @@ const GOOD_SVG_OPTIONS = {
 
 export const useSceneControls = () => {
   return useControls({
+    Export: folder({
+      "Save as GLB": button(() => {
+        window.dispatchEvent(new CustomEvent("export-glb"));
+      }),
+    }),
     isCCW: {
       value: false,
       label: "Counterclockwise",
