@@ -125,13 +125,6 @@ export const useSceneControls = () => {
       step: 0.1,
       label: "Rotation Z",
     },
-    simplifyTolerance: {
-      value: 0,
-      min: 0,
-      max: 10,
-      step: 0.1,
-      label: "Simplify Tolerance",
-    },
     curveSegments: {
       value: 12,
       min: 1,

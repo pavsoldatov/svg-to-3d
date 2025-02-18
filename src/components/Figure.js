@@ -40,7 +40,7 @@ const Figure = ({ position }) => {
   });
   geometry.center();
 
-  const handleExport = useCallback(() => {
+  const handleGLBExport = useCallback(() => {
     if (!meshRef.current) return;
 
     const exporter = new GLTFExporter();
@@ -66,6 +66,17 @@ const Figure = ({ position }) => {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(link.href);
+
+        meshClone.geometry.dispose();
+        if (meshClone.material) {
+          if (Array.isArray(meshClone.material)) {
+            meshClone.material.forEach((material) => material.dispose());
+          } else {
+            meshClone.material.dispose();
+          }
+        }
+        scene.remove(meshClone);
+        meshClone.clear();
       },
       (error) => {
         console.error("An error occurred while exporting:", error);
@@ -95,12 +106,23 @@ const Figure = ({ position }) => {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(link.href);
+
+    meshClone.geometry.dispose();
+    if (meshClone.material) {
+      if (Array.isArray(meshClone.material)) {
+        meshClone.material.forEach((material) => material.dispose());
+      } else {
+        meshClone.material.dispose();
+      }
+    }
+    scene.remove(meshClone);
+    meshClone.clear();
   }, []);
 
   useEffect(() => {
-    window.addEventListener("export-glb", handleExport);
-    return () => window.removeEventListener("export-glb", handleExport);
-  }, [handleExport]);
+    window.addEventListener("export-glb", handleGLBExport);
+    return () => window.removeEventListener("export-glb", handleGLBExport);
+  }, [handleGLBExport]);
 
   useEffect(() => {
     window.addEventListener("export-stl", handleSTLExport);
